@@ -11,8 +11,8 @@ import Sentry
         Client.shared = try Client(dsn: dsn)
     }
     catch {
-        DELog(message: "Fail to initiate Sentry")
-        DESLog(message: "Sentry failed: \(error)", level: .fault)
+        DELog("Fail to initiate Sentry")
+        DESLog("Sentry failed: \(error)", level: .fault)
         return false
     }
     
