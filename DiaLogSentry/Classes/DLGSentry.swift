@@ -1,10 +1,13 @@
 
 import DialExt
 
-
+/**
+ Run sentry.
+ Call this method in your logger configuration or just in the applicationDidFinishLaunching method.
+ */
 public func runSentry(dsn: String) {
     do {
-        Client.shared = try Client(dsn: "https://d4f8f2c5c45f4ca09e81fda0758e63bb:105123ba02414707bfcbc990a214a00e@sentry.transmit.im/11")
+        Client.shared = try Client(dsn: dsn)
     }
     catch {
         AppSLog(message: "Fail to initiate Sentry")
