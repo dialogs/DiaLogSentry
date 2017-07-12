@@ -6,7 +6,7 @@ import Sentry
  Run sentry.
  Call this method in your logger configuration or just in the applicationDidFinishLaunching method.
  */
-@discardableResult public func runSentry(dsn: String) -> Bool {
+@discardableResult public func DiaLogSentryRun(dsn: String) -> Bool {
     do {
         Client.shared = try Client(dsn: dsn)
     }
@@ -20,6 +20,11 @@ import Sentry
     return true
 }
 
+public func DiaLogSentryImitateEvent(id: String = String(describing: arc4random())) {
+    let event = Event(level: SentryLogLevel.verbose)
+    event.message = "Imitation event: \(id)"
+    Client.shared?.send(event: event, completion: nil)
+}
 
 public class SentryLogService: DELogService {
     
