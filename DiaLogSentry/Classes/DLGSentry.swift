@@ -11,8 +11,8 @@ public func runSentry(dsn: String) {
         Client.shared = try Client(dsn: dsn)
     }
     catch {
-        AppSLog(message: "Fail to initiate Sentry")
-        AppLog(message: "Sentry failed: \(error)", level: .fault)
+        DELog(message: "Fail to initiate Sentry")
+        DESLog(message: "Sentry failed: \(error)", level: .fault)
         exit(0)
     }
     
