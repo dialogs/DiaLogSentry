@@ -6,17 +6,18 @@ import Sentry
  Run sentry.
  Call this method in your logger configuration or just in the applicationDidFinishLaunching method.
  */
-public func runSentry(dsn: String) {
+@discardableResult public func runSentry(dsn: String) -> Bool {
     do {
         Client.shared = try Client(dsn: dsn)
     }
     catch {
         DELog(message: "Fail to initiate Sentry")
         DESLog(message: "Sentry failed: \(error)", level: .fault)
-        exit(0)
+        return false
     }
     
     DELogger.shared.services.append(SentryLogService())
+    return true
 }
 
 
