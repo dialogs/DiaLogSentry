@@ -37,5 +37,10 @@ Small framework for adding Sentry to DialogSDK based project.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
+
+  #Logger
   s.dependency 'DialExt'
+
+  #Logger service
+  s.dependency 'Sentry'
 end
