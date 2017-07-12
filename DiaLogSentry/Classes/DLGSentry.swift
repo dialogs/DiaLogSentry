@@ -21,7 +21,7 @@ import Sentry
 }
 
 public func DiaLogSentryImitateEvent(id: String = String(describing: arc4random())) {
-    let event = Event(level: SentryLogLevel.verbose)
+    let event = Event(level: SentrySeverity.info)
     event.message = "Imitation event: \(id)"
     Client.shared?.send(event: event, completion: nil)
 }
