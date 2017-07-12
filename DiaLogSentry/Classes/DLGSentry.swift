@@ -1,5 +1,6 @@
 
 import DialExt
+import Sentry
 
 /**
  Run sentry.
